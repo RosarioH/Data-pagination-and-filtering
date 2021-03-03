@@ -47,22 +47,18 @@ This function will create and insert/append the elements needed for the paginati
 function addPagination(list){
    // Variable to calculate the number of pages needed
    const numOfPages = Math.ceil(list.length / 9);
-   // Element with a class of `link-list` and assign it to a variable
+
    const linkList = document.querySelector('.link-list');
-   // set the innerHTML property of the variable you just created to an empty string
    linkList.innerHTML = '';
+
    // loop over the number of pages needed
    for(let i = 1; i <= numOfPages; i++){
       // Elements needed to display the pagination button
       const button = `<li> <button type="button"> ${i} </button> </li>`;
-      // insert the above elements
       linkList.insertAdjacentHTML('beforeend', button);
    }
-   // give the first pagination button a class of "active"
       document.querySelector('button:first-child').className = 'active';
-   // create an event listener
       linkList.addEventListener('click', (e) => {
-         // if the click target is a button:
          if(e.target.tagName === 'BUTTON'){
             // remove the "active" class from the previous button
             document.querySelector('.active').className = '';
